@@ -1,2 +1,4 @@
-# final-project
-Final Project
+
+# Final Project - Text to Image Generator
+
+This is my final project.
