@@ -21,8 +21,8 @@ if 'generated_image' not in st.session_state:
     st.session_state.generated_image = None
 
 # --- Secret Sauce (API Tokens and Endpoints) --- #
-REPLICATE_API_TOKEN = st.secrets["REPLICATE_API_TOKEN"]
-REPLICATE_MODEL_ENDPOINTSTABILITY = st.secrets["REPLICATE_MODEL_ENDPOINTSTABILITY"]
+REPLICATE_API_TOKEN = st.secrets["r8_CEfjmVbzJnXFat61ym2TXpAtazkzTnU1SLvjV"]
+REPLICATE_MODEL_ENDPOINTSTABILITY = st.secrets["stability-ai/sdxl:2b017d9b67edd2ee1401238df49d75da53c523f36e363881e057f5dc3ed3c5b2"]
 
 # --- Professor text, link, and logo --- #
 professor_text = "Prof. Prachi Thakur"
