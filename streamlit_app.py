@@ -7,20 +7,20 @@ from utils import icon
 from streamlit_image_select import image_select
 
 # UI configurations
-st.set_page_config(page_title="Replicate Image Generator",
+st.set_page_config(page_title="Text to Image Generator",
                    page_icon=":bridge_at_night:",
                    layout="wide")
 icon.show_icon(":foggy:")
-st.markdown("# :rainbow[Your Text-to-Image Artistry Studio]")
+st.markdown("# :rainbow[Text to Image Generator]")
 
-# API Tokens and endpoints from `.streamlit/secrets.toml` file
+# API Tokens and endpoints
 REPLICATE_API_TOKEN = "r8_CEfjmVbzJnXFat61ym2TXpAtazkzTnU1SLvjV"
 REPLICATE_MODEL_ENDPOINTSTABILITY = "stability-ai/sdxl:2b017d9b67edd2ee1401238df49d75da53c523f36e363881e057f5dc3ed3c5b2"
 
-# Resources text, link, and logo
-replicate_text = "Stability AI SDXL Model on Replicate"
-replicate_link = "https://replicate.com/stability-ai/sdxl"
-replicate_logo = "https://storage.googleapis.com/llama2_release/Screen%20Shot%202023-07-21%20at%2012.34.05%20PM.png"
+# Professor text, link, and logo
+professor_text = "Prof. Prachi Thakur"
+professor_link = "https://www.linkedin.com/in/prachi-thakur-38a625239/"
+professor_logo = "https://cdn-icons-png.flaticon.com/512/174/174857.png"
 
 # Placeholders for images and gallery
 generated_images_placeholder = st.empty()
@@ -36,7 +36,7 @@ def configure_sidebar() -> None:
     """
     with st.sidebar:
         with st.form("my_form"):
-            st.info("**Yo fam! Start here ↓**", icon="👋🏾")
+            st.info("**Start here ↓**", icon="👋🏾")
             with st.expander(":rainbow[**Refine your output here**]"):
                 # Advanced Settings (for the curious minds!)
                 width = st.number_input("Width of output image", value=1024)
@@ -56,9 +56,9 @@ def configure_sidebar() -> None:
                 high_noise_frac = st.slider(
                     "Fraction of noise to use for `expert_ensemble_refiner`", value=0.8, max_value=1.0, step=0.1)
             prompt = st.text_area(
-                ":orange[**Enter prompt: start typing, Shakespeare ✍🏾**]",
+                ":orange[**Enter prompt: start typing**]",
                 value="An astronaut riding a rainbow unicorn, cinematic, dramatic")
-            negative_prompt = st.text_area(":orange[**Party poopers you don't want in image? 🙅🏽‍♂️**]",
+            negative_prompt = st.text_area(":orange[**What you don't want in image?**]",
                                            value="the absolute worst quality, distorted features",
                                            help="This is a negative prompt, basically type what you don't want to see in the generated image")
 
@@ -66,21 +66,21 @@ def configure_sidebar() -> None:
             submitted = st.form_submit_button(
                 "Submit", type="primary", use_container_width=True)
 
-        # Credits and resources
+        # Professor and Ourself
         st.divider()
         st.markdown(
-            ":orange[**Resources:**]  \n"
-            f"<img src='{replicate_logo}' style='height: 1em'> [{replicate_text}]({replicate_link})",
+            ":orange[**Under the guidance of:**]  \n"
+            f"<img src='{professor_logo}' style='height: 1em'> [{professor_text}]({professor_link})",
             unsafe_allow_html=True
         )
         st.markdown(
             """
             ---
-            Follow me on:
-
-            𝕏 → [@tonykipkemboi](https://twitter.com/tonykipkemboi)
-
-            LinkedIn → [Tony Kipkemboi](https://www.linkedin.com/in/tonykipkemboi)
+            Connect us on:
+        
+            LinkedIn → [Faisal Siddiqui](https://www.linkedin.com/in/itsfaisalsid)
+        
+            LinkedIn → [Adeen Shaikh](https://www.linkedin.com/in/shaikh-adeen-7857a4229/)
 
             """
         )
