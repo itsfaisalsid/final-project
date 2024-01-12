@@ -7,7 +7,7 @@ from utils import icon
 from streamlit_image_select import image_select
 
 # UI configurations
-st.set_page_config(page_title="Text to Image Generator",
+st.set_page_config(page_title="Text To Image Generator",
                    page_icon=":bridge_at_night:",
                    layout="wide")
 icon.show_icon(":foggy:")
